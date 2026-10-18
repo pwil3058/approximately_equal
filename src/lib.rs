@@ -88,9 +88,9 @@ macro_rules! assert_approx_ne {
     ($left:expr, $right:expr, $max_diff:expr,) => {{ $crate::assert_approx_ne!($left, $right, $max_diff) }};
 }
 
-use num_traits::Float;
-
-pub trait FloatApproxEq: Float + std::cmp::PartialEq + PartialOrd + Sized {
+pub trait FloatApproxEq:
+    std::cmp::PartialEq + PartialOrd + Sized + std::ops::Mul<Output = Self> + Copy
+{
     const DEFAULT_MAX_DIFF: Self;
 
     fn abs_diff(&self, _other: &Self) -> Self;
