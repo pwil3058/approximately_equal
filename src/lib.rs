@@ -7,8 +7,7 @@ macro_rules! assert_approx_eq {
             (left_val, right_val) => {
                 if !(*left_val).approx_eq(&*right_val, None) {
                     panic!(
-                        "assertion failed: `left.approx_eq(right)` \
-                         (left: `{:?}`, right: `{:?}`)",
+                        "assertion failed: `left.approx_eq(right)`\n\t left: `{:?}`\n\tright: `{:?}`.",
                         &*left_val, &*right_val
                     )
                 }
@@ -21,8 +20,7 @@ macro_rules! assert_approx_eq {
             (left_val, right_val) => {
                 if !(*left_val).approx_eq(&*right_val, Some($max_diff)) {
                     panic!(
-                        "assertion failed: `left.approx_eq(right)` \
-                         (left: `{:?}`, right: `{:?}`)",
+                        "assertion failed: `left.approx_eq(right)`\n\t left: `{:?}`\n\tright: `{:?}`.",
                         &*left_val, &*right_val
                     )
                 }
@@ -63,8 +61,7 @@ macro_rules! assert_approx_ne {
             (left_val, right_val) => {
                 if (*left_val).approx_eq(&*right_val, None) {
                     panic!(
-                        "assertion failed: `left.approx_eq(right)` \
-                         (left: `{:?}`, right: `{:?}`)",
+                        "assertion failed: `left.approx_ne(right)`\n\t left: `{:?}`\n\tright: `{:?}`.",
                         &*left_val, &*right_val
                     )
                 }
@@ -77,9 +74,8 @@ macro_rules! assert_approx_ne {
             (left_val, right_val) => {
                 if (*left_val).approx_eq(&*right_val, Some($max_diff)) {
                     panic!(
-                        "assertion failed: `left.approx_eq(right)` \
-                         (left: `{:?}`, right: `{:?}`)",
-                        &*left_val, &*right_val
+                        "assertion failed: `left.approx_ne(right)`\n\t left: `{:?}`\n\tright: `{:?}`.",
+                         &*left_val, &*right_val
                     )
                 }
             }
