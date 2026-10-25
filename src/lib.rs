@@ -55,7 +55,7 @@ macro_rules! debug_assert_approx_eq {
 }
 
 #[macro_export]
-macro_rules! assert_approx_ne {
+macro_rules! assert_not_approx_eq {
     ($left:expr, $right:expr) => {{
         match (&$left, &$right) {
             (left_val, right_val) => {
