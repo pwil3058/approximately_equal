@@ -68,7 +68,7 @@ macro_rules! assert_not_approx_eq {
             }
         }
     }};
-    ($left:expr, $right:expr,) => {{ $crate::assert_approx_ne!($left, $right) }};
+    ($left:expr, $right:expr,) => {{ $crate::assert_not_approx_eq!($left, $right) }};
     ($left:expr, $right:expr, $max_diff:expr) => {{
         match (&$left, &$right) {
             (left_val, right_val) => {
@@ -81,7 +81,7 @@ macro_rules! assert_not_approx_eq {
             }
         }
     }};
-    ($left:expr, $right:expr, $max_diff:expr,) => {{ $crate::assert_approx_ne!($left, $right, $max_diff) }};
+    ($left:expr, $right:expr, $max_diff:expr,) => {{ $crate::assert_not_approx_eq!($left, $right, $max_diff) }};
 }
 
 pub trait FloatApproxEq:
